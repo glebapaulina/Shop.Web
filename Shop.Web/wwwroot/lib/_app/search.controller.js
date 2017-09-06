@@ -1,0 +1,1 @@
+!function(){"use strict";function e(e){e.global={query:"",search:function(r){return-1!==angular.lowercase(r.title).indexOf(angular.lowercase(e.global.query)||"")||-1!==angular.lowercase(r.authorAuthorName).indexOf(angular.lowercase(e.global.query)||"")?!0:!1}}}angular.module("app").controller("searchController",e),e.$inject=["$rootScope"]}();

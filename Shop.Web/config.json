@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "BookstoreContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=BookstoreDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
+}

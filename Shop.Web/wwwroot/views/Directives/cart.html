@@ -1,0 +1,37 @@
+﻿<div class="form-group" >
+    <label for="koszyk">
+        <a data-toggle="modal" data-target="#cart">Twój koszyk: </a>
+    </label>
+    <input type="text" class="form-control" id="koszyk" placeholder="Liczba produktów: {{ count }}">
+</div>  
+<div class="modal fade" id="cart" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Twój koszyk</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Nośnik</th>
+                        <th>Ilość</th>                       
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="cartItem in cartItems">
+                        <td>{{ cartItem.bookTitle }}</td>
+                        <td>{{ cartItem.storageStorageName }}</td>
+                        <td>{{ cartItem.quantity }}</td>                              
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Zamknij" class="btn btn-default" data-dismiss="modal"/>
+            </div>
+        </div>
+    </div>
+</div>

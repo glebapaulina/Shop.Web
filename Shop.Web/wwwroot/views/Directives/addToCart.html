@@ -1,0 +1,41 @@
+﻿<button class="btn btn-success" data-toggle="modal" data-target="#{{book.bookId}}" >do koszyka</button>
+<div id="{{book.bookId}}" class="modal fade" role="dialog">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Dodaj do koszyka</h4>
+            </div>
+            <form novalidate name="addToCartForm" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Tytuł:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" placeholder="{{book.title}}" disabled>
+                        </div>
+                    </div>
+                    <div  class="form-group">
+                        <label for="StorageSelect" class="control-label col-sm-2">Nośnik:</label>
+                        <div class="col-sm-8">
+                            <select name="StorageSelect" id="StorageSelect" class="form-control" ng-model="newCartItem.storageStorageName" required>
+                                <option value="">--- Wybierz ---</option>
+                                <option ng-repeat="item in storages" >{{item.storageName}}</option>
+                            </select><span ng-show="addToCartForm.StorageSelect.$error.required" class="text-danger">Należy wybrać nośnik</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" class="control-label col-sm-2">Ilość:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" id="quantity" name="quantity" ng-model="newCartItem.quantity" required ng-pattern="/^([0]*[1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/">
+                            <span ng-show="addToCartForm.quantity.$error.pattern" class="text-danger">Ilość musi być liczbą całkowitą z zakresu 1-999</span>
+                            <span ng-show="addToCartForm.quantity.$error.required" class="text-danger">Pole ilość jest wymagane</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" ng-disabled="addToCartForm.$invalid" ng-click="addItemToCart();$hide()" value="OK" class="btn btn-success" data-dismiss="modal" />
+                    <input type="button" value="Anuluj" class="btn btn-default" data-dismiss="modal" />
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>

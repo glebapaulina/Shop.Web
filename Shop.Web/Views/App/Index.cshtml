@@ -1,0 +1,100 @@
+﻿@using System
+@using System.Linq
+@using Shop.Web.Models
+@model System.Collections.Generic.IEnumerable<Shop.Web.Models.Data.Book>
+@{
+    ViewBag.Title = "Home Page";
+}
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <environment names="Development">  
+        <script src="~/js/app.module.js"></script>
+        <script src="~/js/loading.directive.js"></script>
+        <script src="~/js/cart.directive.js"></script>
+        <script src="~/js/search.controller.js"></script>
+        <script src="~/js/cancelSearch.directive.js"></script>
+        <script src="~/js/addToCart.directive.js"></script>
+        <script src="~/js/allBooks.controller.js"></script>
+        <script src="~/js/audiobooks.controller.js"></script>
+        <script src="~/js/ebooks.controller.js"></script>
+        <script src="~/js/newBooks.controller.js"></script>
+        <script src="~/js/offerBooks.controller.js"></script>
+        <script src="~/js/previewBooks.controller.js"></script>
+    </environment>
+    
+    <environment names="Production,Staging">
+        <script src="~/lib/_app/app.module.js"></script>
+        <script src="~/lib/_app/loading.directive.js"></script>
+        <script src="~/lib/_app/cart.directive.js"></script>
+        <script src="~/lib/_app/search.controller.js"></script>
+        <script src="~/lib/_app/cancelSearch.directive.js"></script>
+        <script src="~/lib/_app/addToCart.directive.js"></script>
+        <script src="~/lib/_app/allBooks.controller.js"></script>
+        <script src="~/lib/_app/audiobooks.controller.js"></script>
+        <script src="~/lib/_app/ebooks.controller.js"></script>
+        <script src="~/lib/_app/newBooks.controller.js"></script>
+        <script src="~/lib/_app/offerBooks.controller.js"></script>
+        <script src="~/lib/_app/previewBooks.controller.js"></script>
+    </environment>
+    
+
+}
+
+<div id="wrapper">
+    <div class="row" ng-app="app" ng-controller="searchController">
+        <div class="container-fluid page-header">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <h3>
+                            <b>Księgarnia Internetowa</b>
+                        </h3>
+                        <p>Nasze sklepy prowadzimy z pasją!</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="wyszukiwarka">Wyszukiwarka:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </div>
+                            <input type="text" id="wyszukiwarka" class="form-control" style="border-left: none" ng-model="global.query"/>
+                        </div>
+                        <input type="submit" class="btn btn-default" value="Szukaj"/>
+                    </div>
+                    <cart></cart>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <h4>Katalog książek</h4>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a data-toggle="tab" id="wszystkie" ng-href="#!wszystkie" data-target="#wszystkie">Wszystkie</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" id="audiobooki" ng-href="#!audiobooki" data-target="#audiobooki">Audiobooki</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" id="ebooki" ng-href="#!ebooki" data-target="#ebooki">E-booki</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" id="nowosci" ng-href="#!nowosci" data-target="#nowosci">Nowości</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" id="zapowiedzi" ng-href="#!zapowiedzi" data-target="#zapowiedzi">Zapowiedzi</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" id="okazje" ng-href="#!okazje" data-target="#okazje">Super okazje</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div ng-view>
+        </div>
+    </div>
+</div>
+<script src="~/js/navTabToggle.js"></script>

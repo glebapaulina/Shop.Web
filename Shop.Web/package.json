@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "name": "shop.web",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "~1.4.1",
+    "gulp-util": "^3.0.8",
+    "gulp-ng-annotate":  "~1.1.0"
+  }
+}

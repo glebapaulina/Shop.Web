@@ -1,0 +1,36 @@
+﻿<div class="container">
+    <table ng-if="vm.books.length > 0" class="table table-bordered table-striped table-responsive" id="bookstable">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Data wydania</th>
+            <th>Cena</th>
+            <th>Autor</th>
+            <th>Wydawnictwo</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="book in vm.books | orderBy:'title'  | filter: global.search as results">
+            <td id="title">{{ book.title }}</td>
+            <td id="date">{{ book.releaseDate | date: 'dd.MM.yyyy' }}</td>
+            <td id="price">{{ book.price | number : 2}}</td>
+            <td id="author">{{ book.authorAuthorName }}</td>
+            <td id="publisher">{{ book.publisherPublisherName }}</td>
+            <td>
+                <add-to-cart book="book"></add-to-cart>
+            </td>
+        </tr>
+        <tr ng-if="results.length === 0">
+            <td colspan="6">
+                <cancel-search results="results"></cancel-search>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <div class="alert alert-warning" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <div class="alert alert-info" ng-show="vm.infoMessage">{{ vm.infoMessage }}</div>
+</div>
+    
+
