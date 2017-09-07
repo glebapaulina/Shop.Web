@@ -150,7 +150,7 @@ namespace Shop.Web.Models.DataContext
                         ReleaseDate = DateTime.Now.AddDays(-7),
                         BookType = ebook,
                         Publisher = albatros,                      
-                        Author = sapkowski
+                        Author = kosinski
                     },
 
                 };
